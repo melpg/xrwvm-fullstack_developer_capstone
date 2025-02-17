@@ -124,3 +124,33 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+.contact-card {
+            display: flex;
+            background: aliceblue;;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            
+    width: 125%;
+    height: 35%;
+        }
+        .contact-card img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .contact-info {
+            padding: 20px;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .contact-info h2 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            color: #555;
+        }
