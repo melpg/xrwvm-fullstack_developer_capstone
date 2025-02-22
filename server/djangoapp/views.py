@@ -151,9 +151,9 @@ def get_dealer_details(request, dealer_id):
 # ...
 def add_review(request):
     if not request.user.is_anonymous:
-        data = json.loads(request.body) # <-- added
+        data = json.loads(request.body)
         try:
-            response = post_review(data) # <-- added
+            response = post_review(data)
             return JsonResponse({"status": 200, "response": response})
         except Exception as e:
             # If an error occurs, return a JsonResponse with error details
