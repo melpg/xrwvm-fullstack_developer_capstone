@@ -5,7 +5,7 @@ from .models import CarMake, CarModel
 
 
 # Register your models here.
-class CarModelInline(admin.TabularInline):  
+class CarModelInline(admin.TabularInline): 
     model = CarModel
     extra = 1
 
