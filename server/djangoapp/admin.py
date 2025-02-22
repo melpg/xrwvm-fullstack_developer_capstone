@@ -3,6 +3,7 @@ from django.contrib import admin
 # from .models import related models
 from .models import CarMake, CarModel
 
+
 # Register your models here.
 class CarModelInline(admin.TabularInline):
     model = CarModel
