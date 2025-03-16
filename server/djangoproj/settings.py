@@ -26,7 +26,7 @@ SECRET_KEY =\
     'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True 
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -45,7 +45,7 @@ CSRF_TRUSTED_ORIGINS = [
     '.proxy.cognitiveclass.ai',
     "http://b2edecce-us-east.lb.appdomain.cloud",
     "https://b2edecce-us-east.lb.appdomain.cloud",
-    "https://your-render-project.onrender.com"
+    "https://xrwvm-fullstack-developer-capstone-helo.onrender.com"
 ]
 
 REST_FRAMEWORK = {
