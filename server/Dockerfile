@@ -5,7 +5,7 @@
 #Change the working directory.
 #Expose port.
 #Run the command to start the application.
-FROM python:3.12.0-slim
+FROM python:3.12.0-slim-bookworm
 
 ENV PYTHONBUFFERED 1
 ENV PYTHONWRITEBYTECODE 1
