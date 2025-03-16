@@ -26,7 +26,7 @@ SECRET_KEY =\
     'django-insecure-ccow$tz_=9%dxu4(0%^(z%nx32#s@(zt9$ih@)5l54yny)wm-0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost',
@@ -34,7 +34,8 @@ ALLOWED_HOSTS = [
     'us-east-0.proxy.cognitiveclass.ai',
     'https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01'
     '.proxy.cognitiveclass.ai',
-    "b2edecce-us-east.lb.appdomain.cloud"
+    "b2edecce-us-east.lb.appdomain.cloud",
+    ".onrender.com"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
@@ -43,7 +44,8 @@ CSRF_TRUSTED_ORIGINS = [
     'https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01'
     '.proxy.cognitiveclass.ai',
     "http://b2edecce-us-east.lb.appdomain.cloud",
-    "https://b2edecce-us-east.lb.appdomain.cloud"
+    "https://b2edecce-us-east.lb.appdomain.cloud",
+    "https://your-render-project.onrender.com"
 ]
 
 REST_FRAMEWORK = {
@@ -66,6 +68,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

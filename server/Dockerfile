@@ -5,7 +5,7 @@
 #Change the working directory.
 #Expose port.
 #Run the command to start the application.
-FROM python:3.12.0-slim-bookworm
+FROM python:3.12.0-slim
 
 ENV PYTHONBUFFERED 1
 ENV PYTHONWRITEBYTECODE 1
@@ -18,10 +18,10 @@ WORKDIR $APP
 #Install the requirements
 COPY requirements.txt $APP
 
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 #Copy the rest of the files
-COPY . $APP
+COPY . $APP/
 
 #Expose the port
 EXPOSE 8000
