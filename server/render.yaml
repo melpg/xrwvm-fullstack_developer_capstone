@@ -1,27 +1,31 @@
 services:
   - type: web
-    name: backend
+    name: dealership-backend
     env: python
+    region: oregon  # Change this based on your location
+    plan: free  # Change this if needed
     buildCommand: |
       pip install -r server/requirements.txt
       python server/manage.py migrate
       python server/manage.py collectstatic --noinput
-    startCommand: gunicorn djangoproj.wsgi:application --bind 0.0.0.0:10000
+    startCommand: "gunicorn djangoproj.wsgi:application --bind 0.0.0.0:8000"
     envVars:
       - key: backend_url
         value: "https://xrwvm-fullstack-developer-capstone-helo.onrender.com"
       - key: sentiment_analyzer_url
-        value: "https://sentianalyzer.1thxjuyrfyu1.us-south.codeengine.appdomain.cloud"
+        value: "https://sentianalyzer.1t3o0xexce5s.us-south.codeengine.appdomain.cloud"
       - key: DJANGO_SECRET_KEY
         generateValue: true
       - key: DEBUG
         value: "False"
 
   - type: web
-    name: frontend
+    name: dealership-frontend
     env: node
-    buildCommand: cd server/frontend && npm install && npm run build
-    startCommand: npx serve -s build -l 3000
+    region: oregon
+    plan: free
+    buildCommand: "cd server/frontend && npm install && npm run build"
+    startCommand: "npx serve -s build -l 3000"
     envVars:
       - key: REACT_APP_BACKEND_URL
         value: "https://xrwvm-fullstack-developer-capstone-helo.onrender.com"
