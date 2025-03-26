@@ -108,19 +108,13 @@ def get_cars(request):
 # def get_dealerships(request):
 # ...
 # Update the `get_dealerships` render list of dealerships all by default
-def get_dealerships(request, state="All"):
-    if state == "All":
-        endpoint = "get_dealers"  # ✅ Matches Django's URL pattern
+def get_dealerships(requests, state="ALL"):
+    if (state == "ALL"):
+        endpoint = "/fetchDealers"
     else:
-        endpoint = f"get_dealers/{state}"  # ✅ Supports filtering by state
-
-    dealerships = get_request(f"/{endpoint}")
-    
-    if dealerships is None:
-        return JsonResponse({"status": 500, "message": "Failed to fetch dealers"})
-
+        endpoint = "/fetchDealers/"+state
+    dealerships = get_request(endpoint)
     return JsonResponse({"status": 200, "dealers": dealerships})
-
 
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
