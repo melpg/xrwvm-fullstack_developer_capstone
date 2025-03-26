@@ -109,29 +109,43 @@ def get_cars(request):
 # ...
 # Update the `get_dealerships` render list of dealerships all by default
 def get_dealerships(request, state="All"):
-    if (state == "All"):
-        endpoint = "/fetchDealers"
+    if state == "All":
+        endpoint = "get_dealers"  # ✅ Matches Django's URL pattern
     else:
-        endpoint = "/fetchDealers/"+state
-    dealerships = get_request(endpoint)
+        endpoint = f"get_dealers/{state}"  # ✅ Supports filtering by state
+
+    dealerships = get_request(f"/{endpoint}")
+    
+    if dealerships is None:
+        return JsonResponse({"status": 500, "message": "Failed to fetch dealers"})
+
     return JsonResponse({"status": 200, "dealers": dealerships})
+
 
 
 # Create a `get_dealer_reviews` view to render the reviews of a dealer
 # def get_dealer_reviews(request,dealer_id):
 # ...
 def get_dealer_reviews(request, dealer_id):
-    # if dealer id has been provided
-    if (dealer_id):
-        endpoint = "/fetchReviews/dealer/"+str(dealer_id)
+    if dealer_id:
+        endpoint = f"/fetchReviews/dealer/{dealer_id}"
         reviews = get_request(endpoint)
+
+        if not reviews:
+            return JsonResponse({"status": 500, "message": "Failed to fetch reviews"})
+
         for review_detail in reviews:
-            response = analyze_review_sentiments(review_detail['review'])
-            print(response)
-            review_detail['sentiment'] = response['sentiment']
+            try:
+                response = analyze_review_sentiments(review_detail['review'])
+                review_detail['sentiment'] = response.get('sentiment', 'unknown')
+            except Exception as e:
+                review_detail['sentiment'] = "error"
+                print(f"Sentiment analysis failed: {e}")
+
         return JsonResponse({"status": 200, "reviews": reviews})
-    else:
-        return JsonResponse({"status": 400, "message": "Bad Request"})
+    
+    return JsonResponse({"status": 400, "message": "Bad Request"})
+
 
 
 # Create a `get_dealer_details` view to render the dealer details
