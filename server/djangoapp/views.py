@@ -137,10 +137,8 @@ def get_dealer_reviews(request, dealer_id):
                 print(f"Sentiment analysis failed: {e}")
 
         return JsonResponse({"status": 200, "reviews": reviews})
-    
+
     return JsonResponse({"status": 400, "message": "Bad Request"})
-
-
 
 # Create a `get_dealer_details` view to render the dealer details
 # def get_dealer_details(request, dealer_id):
@@ -152,7 +150,6 @@ def get_dealer_details(request, dealer_id):
         return JsonResponse({"status": 200, "dealer": dealership})
     else:
         return JsonResponse({"status": 400, "message": "Bad Request"})
-
 
 # Create a `add_review` view to submit a review
 # def add_review(request):
