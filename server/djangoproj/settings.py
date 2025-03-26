@@ -36,7 +36,8 @@ ALLOWED_HOSTS = [
     'https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01'
     '.proxy.cognitiveclass.ai',
     "b2edecce-us-east.lb.appdomain.cloud",
-    ".onrender.com"
+    ".onrender.com",
+    "https://xrwvm-fullstack-developer-capstone-helo.onrender.com"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
