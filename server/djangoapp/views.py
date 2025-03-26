@@ -22,14 +22,6 @@ logger = logging.getLogger(__name__)
 
 
 # Create your views here.
-from django.views.static import serve
-from django.conf import settings
-from django.urls import re_path
-
-urlpatterns += [
-    re_path(r'^manifest\.json$', serve, {'document_root': settings.STATIC_ROOT, 'path': 'manifest.json'}),
-]
-
 
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
