@@ -32,11 +32,11 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
-    "lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
-    "lakshmipg-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
-    "b2edecce-us-east.lb.appdomain.cloud",
+    "https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
+    "https://lakshmipg-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
+    "https://b2edecce-us-east.lb.appdomain.cloud",
     ".onrender.com",
-    "xrwvm-fullstack-developer-capstone-helo.onrender.com",
+    "https://xrwvm-fullstack-developer-capstone-helo.onrender.com",
 
 ]
 
