@@ -30,24 +30,21 @@ DEBUG = True
 
 
 ALLOWED_HOSTS = [
-    'localhost',
-    'https://lakshmipg-8000.theianext-0-labs-prod-misc-tools-'
-    'us-east-0.proxy.cognitiveclass.ai',
-    'https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01'
-    '.proxy.cognitiveclass.ai',
+    "localhost",
+    "127.0.0.1",
+    "lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
+    "lakshmipg-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
     "b2edecce-us-east.lb.appdomain.cloud",
     ".onrender.com",
-    "https://xrwvm-fullstack-developer-capstone-helo.onrender.com"
+    "xrwvm-fullstack-developer-capstone-helo.onrender.com",
+
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://lakshmipg-8000.theianext-0-labs-prod-misc-tools-'
-    'us-east-0.proxy.cognitiveclass.ai',
-    'https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01'
-    '.proxy.cognitiveclass.ai',
-    "http://b2edecce-us-east.lb.appdomain.cloud",
+    "http://127.0.0.1:8000",
+    "https://lakshmipg-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
     "https://b2edecce-us-east.lb.appdomain.cloud",
-    "https://xrwvm-fullstack-developer-capstone-helo.onrender.com"
+    "https://xrwvm-fullstack-developer-capstone-helo.onrender.com",
 ]
 
 REST_FRAMEWORK = {
