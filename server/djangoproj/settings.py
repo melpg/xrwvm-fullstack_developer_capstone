@@ -43,6 +43,7 @@ ALLOWED_HOSTS = [
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:8000",
     "https://lakshmipg-8000.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
+    "https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
     "https://b2edecce-us-east.lb.appdomain.cloud",
     "https://xrwvm-fullstack-developer-capstone-helo.onrender.com",
 ]
@@ -102,7 +103,7 @@ WSGI_APPLICATION = 'djangoproj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'database', 'db.sqlite3'),
+        'NAME': '/var/lib/sqlite/db.sqlite3',  # Use Render's persistent disk
     }
 }
 
