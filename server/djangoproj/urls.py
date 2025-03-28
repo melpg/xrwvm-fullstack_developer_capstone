@@ -18,7 +18,7 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
-
+from django.urls import re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -35,4 +35,5 @@ urlpatterns = [
     path(
         'postreview/<int:dealer_id>',
         TemplateView.as_view(template_name="index.html")),
+    re_path(r'^manifest\.json$', TemplateView.as_view(template_name="static/manifest.json", content_type='application/json')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

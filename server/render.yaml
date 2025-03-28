@@ -22,14 +22,18 @@ services:
     disk:
       name: sqlite-disk
       mountPath: /var/lib/sqlite
-      sizeGB: 1  # 1GB free storage for SQLite
+      sizeGB: 3  # 1GB free storage for SQLite
 
   - type: web
     name: dealership-frontend
     env: node
     region: oregon
     plan: free
-    buildCommand: "cd server/frontend && npm install && npm run build"
+    buildCommand: |
+      cd server/frontend
+      npm install
+      npm run build
+      mv build ../staticfiles/frontend  # Ensure build assets are served
     startCommand: "npx serve -s build -l 3000"
     envVars:
       - key: REACT_APP_BACKEND_URL
