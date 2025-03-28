@@ -29,7 +29,7 @@ SECRET_KEY =\
 DEBUG = True
 
 
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS = ["*",
     "localhost",
     "127.0.0.1",
     "https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
@@ -148,7 +148,7 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/media/'
 
@@ -159,4 +159,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'frontend/static'),
                     os.path.join(BASE_DIR, 'frontend/build'),
-                    os.path.join(BASE_DIR, 'frontend/build/static'),]
+                    os.path.join(BASE_DIR, 'frontend/build/static'),
+                    os.path.join(BASE_DIR, 'frontend', 'build', 'static'),]
