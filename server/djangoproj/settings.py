@@ -162,6 +162,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/build'),  # Root of the React build
-    os.path.join(BASE_DIR, 'frontend/build/static'),  # Static files in React build
+    os.path.join(BASE_DIR, 'frontend/build/static'),
+    os.path.join(BASE_DIR, 'staticfiles'),# Static files in React build
     os.path.join(BASE_DIR, "staticfiles/frontend"),  # Ensure this points correctly
 ]
