@@ -5,6 +5,13 @@
 #Change the working directory.
 #Expose port.
 #Run the command to start the application.
+# Build stage for frontend
+FROM node:18 as build-stage
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/package-lock.json ./
+RUN npm install
+COPY frontend ./
+RUN npm run build
 FROM python:3.12.0-slim-bookworm
 
 ENV PYTHONBUFFERED 1
@@ -24,8 +31,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . $APP/
 
 # Copy static files to the correct location
-RUN mkdir -p /app/staticfiles
-COPY --from=build-stage /app/frontend/build/static /app/staticfiles/
+
+COPY --from=build-stage /app/frontend/build /app/staticfiles/frontend
 
 
 #Expose the port
