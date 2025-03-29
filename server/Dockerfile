@@ -23,6 +23,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 #Copy the rest of the files
 COPY . $APP/
 
+# Copy static files to the correct location
+RUN mkdir -p /app/staticfiles
+COPY --from=build-stage /app/frontend/build/static /app/staticfiles/
 
 
 #Expose the port
