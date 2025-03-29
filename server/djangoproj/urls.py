@@ -35,5 +35,5 @@ urlpatterns = [
     path(
         'postreview/<int:dealer_id>',
         TemplateView.as_view(template_name="index.html")),
-    re_path(r'^manifest\.json$', TemplateView.as_view(template_name="staticfiles/frontend/manifest.json", content_type='application/json')),
+    re_path(r'^manifest\.json$', TemplateView.as_view(template_name="frontend/build/manifest.json", content_type='application/json')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
