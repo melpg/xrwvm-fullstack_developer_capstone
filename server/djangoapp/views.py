@@ -156,27 +156,21 @@ def get_dealer_details(request, dealer_id):
 # Create a `add_review` view to submit a review
 # def add_review(request):
 # ...
+@csrf_exempt
 @require_http_methods(["POST"])
 def add_review(request):
-    if request.user.is_anonymous is False:
-        print("Raw request body:", request.body)
+    print("Raw request body:", request.body)
+    try:
         data = json.loads(request.body)
         print("Parsed JSON data:", data)
-        try:
-            response = post_review(data)
-            print("API response:", response)
-            return JsonResponse({"status": 200})
-        except json.JSONDecodeError:
-            print("JSONDecodeError: Invalid JSON in request body.")
-            return JsonResponse(
-                {"status": 400, "message": "Invalid JSON format"})
-        except Exception as e:
-            print(f"Error: {e}")
-            return JsonResponse(
-                {"status": 401, "message": "Error in posting review"}
-            )
-    else:
-        return JsonResponse({"status": 403, "message": "Unauthorized"})
+        response = post_review(data)
+        print("API response:", response)
+        return JsonResponse({"status": 200})
+    except json.JSONDecodeError:
+        return JsonResponse({"status": 400, "message": "Invalid JSON format"})
+    except Exception as e:
+        print(f"Error: {e}")
+        return JsonResponse({"status": 401, "message": "Error in posting review"})
 
 
 @ensure_csrf_cookie
