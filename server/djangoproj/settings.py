@@ -37,6 +37,7 @@ ALLOWED_HOSTS = ["*",
     "https://b2edecce-us-east.lb.appdomain.cloud",
     ".onrender.com",
     "https://xrwvm-fullstack-developer-capstone-helo.onrender.com",
+    "https://backend-python-5ar4.onrender.com",            
 
 ]
 
@@ -46,10 +47,13 @@ CSRF_TRUSTED_ORIGINS = [
     "https://lakshmipg-8000.theiadockernext-1-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai",
     "https://b2edecce-us-east.lb.appdomain.cloud",
     "https://xrwvm-fullstack-developer-capstone-helo.onrender.com",
+    "https://backend-python-5ar4.onrender.com",
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
 }
 
 # Application definition
