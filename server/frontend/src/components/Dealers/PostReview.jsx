@@ -4,6 +4,20 @@ import "./Dealers.css";
 import "../assets/style.css";
 import Header from '../Header/Header';
 
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      if (cookie.substring(0, name.length + 1) === (name + "=")) {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
 
 const PostReview = () => {
   const [dealer, setDealer] = useState({});
@@ -47,14 +61,20 @@ const PostReview = () => {
       "car_year": year,
     });
 
+    const csrftoken = getCookie("csrftoken");
+    console.log("Sending data:", jsoninput);
+    console.log("CSRF Token:", csrftoken);
+    
     console.log(jsoninput);
     const res = await fetch(review_url, {
       method: "POST",
       headers: {
           "Content-Type": "application/json",
+          "X-CSRFToken": csrftoken,
       },
       
       body: jsoninput,
+      credentials: "include",
   });
 
   const json = await res.json();
